@@ -12,6 +12,9 @@ function blob_fixup() {
         vendor/lib/sensors.ssc.so | vendor/lib64/sensors.ssc.so)
             "${PATCHELF}" --replace-needed libutils.so libutils-v32.so "${2}"
             ;;
+        vendor/lib/hw/audio.primary.msm8953.so)
+            "${PATCHELF}" --replace-needed "libtinycompress_vendor.so" "libtinycompress.so" "${2}"
+            ;;
     esac
 }
 
